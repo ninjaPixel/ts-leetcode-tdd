@@ -23,5 +23,8 @@
   },
   "volta": {
     "node": "20.11.1"
+  },
+  "dependencies": {
+    "prettier": "^3.2.5"
   }
 }
