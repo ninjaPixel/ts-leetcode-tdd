@@ -1,7 +1,7 @@
 {
   "name": "ts-prep",
   "version": "1.0.0",
-  "description": "🧩 A TypeScript starter for solving LeetCode problems with test-driven development",
+  "description": "LeetCode problems solved using TypeScript",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -10,7 +10,6 @@
     "new-problem": "node ./scripts/new-problem.js -t "
   },
   "keywords": [],
-  "author": "Arpit Sheth <arpit@arpitsheth.com> (@shetharp)",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.10",
