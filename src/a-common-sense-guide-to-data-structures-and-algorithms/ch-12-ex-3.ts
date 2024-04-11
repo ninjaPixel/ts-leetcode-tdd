@@ -1,4 +1,5 @@
 let callCount = 0;
+
 /**
  * This problem is known as the "unique paths" problem. Let's say you have a grid of rows and columns, this function
  * accepts a number of rows and a number of columns, and calculates the number of possible "shortest" paths from the upper-leftmost
@@ -16,8 +17,12 @@ function uniquePaths(columns: number, rows: number): number {
 }
 
 type Path = Array<"r" | "d">;
+const hashMap: Record<string, Path[]> = {};
+function hashKey(columns: number, rows: number): string {
+  return `${columns}-${rows}`;
+}
+
 function paths(columns: number, rows: number): Path[] {
-  callCount++;
   if (columns === 1 && rows === 2) {
     return [["d"]];
   }
@@ -27,6 +32,11 @@ function paths(columns: number, rows: number): Path[] {
   if (columns < 1 || rows < 1) {
     throw new Error("😱");
   }
+  const memoKey = hashKey(columns, rows);
+  if (hashMap[memoKey]) {
+    return hashMap[memoKey];
+  }
+  callCount++;
 
   let solution: Path[] = [];
 
@@ -42,6 +52,8 @@ function paths(columns: number, rows: number): Path[] {
       solution.push([...path, "d"]);
     });
   }
+
+  hashMap[memoKey] = solution;
 
   return solution;
 }
