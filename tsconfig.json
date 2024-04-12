@@ -5,7 +5,9 @@
         "sourceMap": true,
         "strict": true,
         "isolatedModules": true,
-        "target": "es2017",
+        "target": "ES2022",
+        "strictNullChecks": true,
+        "noUncheckedIndexedAccess": true
     },
     "compileOnSave": true,
     "include": [
