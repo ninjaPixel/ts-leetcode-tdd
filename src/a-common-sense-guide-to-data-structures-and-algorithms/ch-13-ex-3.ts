@@ -3,22 +3,31 @@
  */
 type FindGreatestFunc = (nums: [number, ...number[]]) => number;
 
+// O(N^2)
 const findGreatestNumberSlow: FindGreatestFunc = (nums) => {
   const one = nums[0];
   const three = nums[3];
   return -1;
 };
 
+// O(N log N)
 const findGreatestNumberMedium: FindGreatestFunc = (nums) => {
-  const one = nums[0];
-  const three = nums[3];
-  return -1;
+  const result = nums.sort((a, b) => (a < b ? -1 : 1))[nums.length - 1];
+  return result as number;
 };
 
+// O(N)
 const findGreatestNumberFast: FindGreatestFunc = (nums) => {
-  const one = nums[0];
-  const three = nums[3];
-  return -1;
+  let max = nums[0];
+  if (nums.length > 1) {
+    for (let i = 1; i < nums.length; i++) {
+      if ((nums[i] as number) > max) {
+        max = nums[i] as number;
+      }
+    }
+  }
+
+  return max;
 };
 
 describe("FindGreatestFunc functions", () => {

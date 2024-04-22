@@ -1,11 +1,15 @@
 /*
  Given an array of positive numbers, this function returns the greatest product of any three numbers.
  */
+import invariant from "tiny-invariant";
+
 function greatest3Product(array: number[]): number {
   if (array.length < 3) {
     return 0;
   }
-
+  invariant(array[0] !== undefined);
+  invariant(array[1] !== undefined);
+  invariant(array[2] !== undefined);
   array.sort((a, b) => (a < b ? -1 : 1)).reverse();
   return array[0] * array[1] * array[2];
 }
